@@ -3,7 +3,7 @@
 require "../../../bootstrap.php";
 
 if (isEmpty()) {
-    flash('message', 'Preencha todos os campos.');
+    flash('message', 'Preencha todos os campos do formulário.');
     header("location: ../../?page=contato");
 }
 
