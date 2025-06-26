@@ -2,7 +2,7 @@
 
 function flash($key, $message, $type = 'danger') {
     if (!isset($_SESSION['flash'][$key])) {
-        $_SESSION['flash'][$key] = "<span class='alert alert-{$type}'>".$message."</span>";
+        $_SESSION['flash'][$key] = "<div class='alert alert-{$type}'>".$message."</div>";
     }
 }
 
