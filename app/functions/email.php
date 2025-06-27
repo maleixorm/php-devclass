@@ -6,10 +6,10 @@ function send(array $data){
     $email->SMTPSecure = 'plain';
     $email->isSMTP();
     $email->Host = 'sandbox.smtp.mailtrap.io';
-    $email->Port = 465;
+    $email->Port = 2525;
     $email->SMTPAuth = true;
-    $email->Username = '48579c4b831cd8';
-    $email->Password = 'aae31fa5d49411';
+    $email->Username = 'dffd410013e48d';
+    $email->Password = 'c2e74d91ac78dd';
     $email->isHTML(true);
     $email->setFrom('contato@marcosaleixo.com.br');
     $email->FromName = $data['quem'];
