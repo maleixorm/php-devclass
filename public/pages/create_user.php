@@ -1,4 +1,4 @@
-<form action="" method="post" role="form">
+<form action="pages/forms/create_user.php" method="post" role="form">
     
     <div class="form-group">
         <label for="name" class="form-label">Nome: </label>
@@ -21,7 +21,7 @@
     </div>
 
     <button type="submit" class="btn btn-primary">Cadastrar</button>
-    
-    
+        
 </form>
 
+<?= get('message'); ?>
