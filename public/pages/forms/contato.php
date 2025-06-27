@@ -4,7 +4,7 @@ require "../../../bootstrap.php";
 
 if (isEmpty()) {
     flash('message', 'Preencha todos os campos do formulário.');
-    redirect("contato");
+    return redirect("contato");
 }
 
 $validate = validate([
