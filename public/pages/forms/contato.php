@@ -14,4 +14,15 @@ $validate = validate([
     'message' => 's'
 ]);
 
-dd($validate->name);
+$data = [
+    'quem' => $validate->email,
+    'para' => 'contato@marcosaleixo.com.br',
+    'assunto' => $validate->subject,
+    'mensagem' => $validate->message
+
+];
+
+if(send($data)){
+    flash('message', 'Email enviado com sucesso', 'success');
+    redirect("contato");
+}
