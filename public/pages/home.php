@@ -25,7 +25,7 @@
                     <td><?= $user->name; ?></td>
                     <td><?= $user->email; ?></td>
                     <td><a href="?page=edit_user&id=<?= $user->id; ?>" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a></td>
-                    <td><a href="" class="btn btn-danger"><i class="bi bi-trash3"></i></a></td>
+                    <td><a href="?page=delete_user&id=<?= $user->id; ?>" class="btn btn-danger"><i class="bi bi-trash3"></i></a></td>
                 </tr>
             <?php endforeach; ?>    
         </tbody>
