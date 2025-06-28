@@ -30,8 +30,22 @@ function create($table, $fields) {
     return $insert->execute($fields);
 }
 
-function update() {
-
+function update($table, $fields, $where) {
+    if (!is_array($fields)) {
+        $fields = (array) $fields;
+    }
+    $pdo = connect();
+    $data = array_map(function ($field) {
+        return "{$field} = :{$field}";
+    }, array_keys($fields));
+    $sql = "UPDATE {$table} SET ";
+    $sql .= implode(', ', $data);
+    $sql .= " WHERE {$where[0]} = :{$where[0]}";
+    // dd($sql);
+    $data = array_merge($fields, [$where[0] => $where[1]]);
+    $update = $pdo->prepare($sql);
+    $update->execute($data);
+    return $update->rowCount();
 }
 
 function find($table,$field,$value) {
