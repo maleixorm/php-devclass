@@ -31,3 +31,4 @@
         </tbody>
     </table>
 </div>
+<?= get('message'); ?>
