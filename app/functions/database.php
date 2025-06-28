@@ -7,6 +7,14 @@ function connect() {
     return $pdo;
 }
 
+function all($table) {
+    $pdo = connect();
+    $sql = "SELECT * FROM {$table}";
+    $list = $pdo->prepare($sql);
+    $list->execute();
+    return $list->fetchAll();
+}
+
 function create($table, $fields) {
     if (!is_array($fields)) {
         $fields = (array) $fields;
@@ -26,8 +34,14 @@ function update() {
 
 }
 
-function find() {
-
+function find($table,$field,$value) {
+    $pdo = connect();
+    $value = filter_var($value, FILTER_SANITIZE_NUMBER_INT);
+    $sql = "SELECT * FROM {$table} WHERE {$field} = :{$field}";
+    $find = $pdo->prepare($sql);
+    $find->bindValue($field, $value);
+    $find->execute();
+    return $find->fetch();
 }
 
 function delete() {
